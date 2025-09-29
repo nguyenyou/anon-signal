@@ -22,4 +22,12 @@ object Tag {
     case Red, Green, Blue
   }
   type ColorMod = Color.type => Color
+  
+  def colorProp(color: Color): Tag.ColorMod = {
+    color match {
+      case Color.Red => _.Red
+      case Color.Green => _.Green
+      case Color.Blue => _.Blue
+    }
+  }
 }
