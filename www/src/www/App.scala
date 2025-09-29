@@ -11,44 +11,18 @@ case class App() {
       cls("space-y-4"),
       div(
         cls("flex gap-4"),
-        Tag(
-          label = "Red",
-          color = "red"
-        )(),
-        Tag(
-          label = "Green",
-          color = "green"
-        )(),
-        Tag(
-          label = "Blue",
-          color = "blue"
-        )()
+        button("Set Red", cls("cursor-pointer"), onClick --> Observer { _ => colorVar.set(_.Red) }),
+        button(
+          "Set Green",
+          cls("cursor-pointer"),
+          onClick --> Observer { _ => colorVar.set(_.Green) }
+        ),
+        button("Set Blue", cls("cursor-pointer"), onClick --> Observer { _ => colorVar.set(_.Blue) })
       ),
-      div(
-        cls("flex gap-4"),
-        Tag1(
-          label = "Red",
-          color = _.Red
-        )(),
-        Tag1(
-          label = "Green",
-          color = _.Green
-        )(),
-        Tag1(
-          label = "Blue",
-          color = _.Blue
-        )()
-      ),
-      div(
-        cls("flex gap-4"),
-        button("Set Red", onClick --> Observer { _ => colorVar.set(_.Red)}),
-        button("Set Green", onClick --> Observer { _ => colorVar.set(_.Green)}),
-        button("Set Blue", onClick --> Observer { _ => colorVar.set(_.Blue)}),
-        Tag2(
-          label = "Red",
-          color = colorSignal
-        )(),
-      )
+      Tag2(
+        label = "Red",
+        color = colorSignal
+      )()
     )
   }
 }
