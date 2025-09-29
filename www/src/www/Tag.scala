@@ -3,6 +3,7 @@ package www
 import com.raquo.laminar.api.L.*
 
 case class Tag(label: String, color: Signal[Tag.ColorMod]) {
+  
   val colorCls: Signal[String] = color.map(_(Tag.Color)).map {
     case Tag.Color.Red => "bg-red-500"
     case Tag.Color.Green => "bg-green-500"

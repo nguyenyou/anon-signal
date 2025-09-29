@@ -1,6 +1,7 @@
 package www
 
 import com.raquo.laminar.api.L.*
+import TagImplicits.given
 
 case class App() {
   private val textVar = Var("")
@@ -31,7 +32,7 @@ case class App() {
       ),
       Tag(
         label = "Signal Red",
-        color = tagColorSignal.map(Tag.colorProp)
+        color = tagColorSignal
       )()
     )
   }
