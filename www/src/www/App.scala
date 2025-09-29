@@ -31,7 +31,7 @@ case class App() {
         )
       ),
       Tag(
-        label = "Signal Red",
+        label = "Signal Tag",
         color = tagColorSignal
       )(),
       div(
