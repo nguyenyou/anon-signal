@@ -3,6 +3,9 @@ package www
 import com.raquo.laminar.api.L.*
 
 case class App() {
+  val colorVar = Var[Tag2.ColorMod](_.Red)
+  val colorSignal = colorVar.signal.distinct
+
   def apply(): HtmlElement = {
     div(
       cls("space-y-4"),
@@ -38,18 +41,13 @@ case class App() {
       ),
       div(
         cls("flex gap-4"),
+        button("Set Red", onClick --> Observer { _ => colorVar.set(_.Red)}),
+        button("Set Green", onClick --> Observer { _ => colorVar.set(_.Green)}),
+        button("Set Blue", onClick --> Observer { _ => colorVar.set(_.Blue)}),
         Tag2(
           label = "Red",
-          color = Val(_.Red)
+          color = colorSignal
         )(),
-        Tag2(
-          label = "Green",
-          color = Val(_.Green)
-        )(),
-        Tag2(
-          label = "Blue",
-          color = Val(_.Blue)
-        )()
       )
     )
   }
