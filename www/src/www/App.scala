@@ -33,7 +33,37 @@ case class App() {
       Tag(
         label = "Signal Red",
         color = tagColorSignal
-      )()
+      )(),
+      div(
+        cls("flex gap-4"),
+        TagSimple(
+          label = "Simple Blue",
+          color = TagSimple.Color.Blue
+        )(),
+        TagSimple(
+          label = "Simple Red",
+          color = TagSimple.Color.Red
+        )(),
+        TagSimple(
+          label = "Simple Green",
+          color = TagSimple.Color.Green
+        )()
+      ),
+      div(
+        cls("flex gap-4"),
+        TagSimple(
+          label = "Simple Blue",
+          color = _.Blue
+        )(),
+        TagSimple(
+          label = "Simple Red",
+          color = _.Red
+        )(),
+        TagSimple(
+          label = "Simple Green",
+          color = _.Green
+        )()
+      )
     )
   }
 }
